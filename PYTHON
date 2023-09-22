@@ -1,0 +1,52 @@
+def get_user_input(prompt):
+    while True:
+        user_input = input(f"{prompt} (yes/no): ").lower()
+        if user_input == "yes":
+            return True
+        elif user_input == "no":
+            return False
+        else:
+            print("Please enter 'yes' or 'no'.")
+
+
+def main():
+    print("Welcome to the Admission Process")
+
+    is_nri = get_user_input("Are you an NRI?")
+    is_resident_of_ap = False
+
+    # Skip is_resident_of_ap if is_nri is "yes"
+    if not is_nri:
+        is_resident_of_ap = get_user_input("Are you a resident of Andhra Pradesh?")
+
+    satisfied_with_course_or_campus = get_user_input("Are you satisfied with the choice of course or campus?")
+
+    if not satisfied_with_course_or_campus:
+        print("Choose another college.")
+        return
+
+    wish_to_reside_in_campus = get_user_input("Do you wish to reside on campus?")
+    want_vitap_bus_service = get_user_input("Do you want to use VITAP Bus Service?")
+
+    # Admission choice based on residency
+    if is_resident_of_ap:
+        print("You can choose to write EAPCET or VITEEE")
+    else:
+        print("You can choose to write VITEEE")
+
+    # Further steps in the admission process
+    if wish_to_reside_in_campus:
+        print("Choose room type and number of roommates & pay advance")
+
+        if want_vitap_bus_service:
+            print("Book and pay transport fee")
+
+        print("Report to hostel & submit documents")
+    else:
+        print("Report & submit required documents")
+
+    print("Meet your mentor")
+    print("Admission process completed. Have a great academic journey!")
+
+
+main()
