@@ -2,8 +2,9 @@ package Project;
 import java.util.*;
 public class VitAp {
     static Scanner sc=new Scanner(System.in);
+    static boolean value=true;
     public static void main(String[] args) {
-        boolean value=true;
+        
         while(value){
             String place=ResidentOfAp();
             String admin=Admission(place);
@@ -33,6 +34,15 @@ public class VitAp {
         System.out.println("enter the no=");
         System.out.println("1-Andhra pradesh\n2-Other state\n3-Other country");
         int n =sc.nextInt();
+        while(value){
+            if(n>3){
+                System.out.println("please enter in 1 , 2 , 3 option only=");
+                n =sc.nextInt();
+                value=true;
+            }else{
+                value=false;
+            }
+        }
         String student_place="";
         switch(n){
             case 1:
@@ -53,6 +63,15 @@ public class VitAp {
             System.out.println("enter the no=");
             System.out.println("1-Eapcet\n2-viteee");
             int n =sc.nextInt();
+            while(value){
+                if(n>2){
+                    System.out.println("please enter in 1 , 2 option only=");
+                    n =sc.nextInt();
+                    value=true;
+                }else{
+                    value=false;
+                }
+            }
             switch(n){
                 case 1:
                     admission="Eapcet";
@@ -73,7 +92,16 @@ public class VitAp {
     static String choiceCourse(){
         System.out.println("enter the no=");
         System.out.println("1-CSE\n2-ECE\n3-Mechanical\n4-Civil");
-        int n=sc.nextInt();
+        int n =sc.nextInt();
+        while(value){
+            if(n>4){
+                System.out.println("please enter in 1 , 2 , 3 , 4 option only=");
+                n =sc.nextInt();
+                value=true;
+            }else{
+                value=false;
+            }
+        }
         String course="";
         switch (n){
             case 1:
@@ -97,7 +125,16 @@ public class VitAp {
     static void hostel(){
         System.out.println("Enter the no=");
         System.out.println("1-bus service\n2-hostel");
-        int n= sc.nextInt();
+        int n =sc.nextInt();
+        while(value){
+            if(n>2){
+                System.out.println("please enter in 1 , 2 option only=");
+                n =sc.nextInt();
+                value=true;
+            }else{
+                value=false;
+            }
+        }
         String student="";
         switch (n) {
             case 1:
@@ -115,3 +152,5 @@ public class VitAp {
         System.out.println("submit the report and meet the mentor");
     }
 }
+ 
+    
