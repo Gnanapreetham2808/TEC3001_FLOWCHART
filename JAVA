@@ -1,0 +1,117 @@
+package Project;
+import java.util.*;
+public class VitAp {
+    static Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+        boolean value=true;
+        while(value){
+            String place=ResidentOfAp();
+            String admin=Admission(place);
+            String course=choiceCourse();
+            if(course.equals("not selected")){
+                System.out.println("the place where student leave="+place);
+                System.out.println("admission through="+admin);
+                System.out.println("please go to another institute");
+                break;
+            }else{
+                System.out.println("student place="+place);
+                System.out.println(admin);
+                System.out.println("student selected course="+course);
+                hostel();
+            }
+            System.out.println("Do you want to continue? (y/n)");
+            String ch =sc.next().toLowerCase();
+            if(ch.equals("y")){
+                value=true;
+            }else{
+                value=false;
+            }
+        }
+        
+    }
+    static String ResidentOfAp(){
+        System.out.println("enter the no=");
+        System.out.println("1-Andhra pradesh\n2-Other state\n3-Other country");
+        int n =sc.nextInt();
+        String student_place="";
+        switch(n){
+            case 1:
+                student_place="Andhra pradesh";
+                break;
+            case 2:
+                student_place="Other state";
+                break;
+            case 3 :
+                student_place="NRI";
+                break;
+        }
+        return student_place;
+    }
+    static String Admission(String place){
+        String admission="";
+        if((place).equals("Andhra pradesh")){
+            System.out.println("enter the no=");
+            System.out.println("1-Eapcet\n2-viteee");
+            int n =sc.nextInt();
+            switch(n){
+                case 1:
+                    admission="Eapcet";
+                    break;
+                case 2:
+                    admission="Viteee";
+                    break;
+            }
+        }
+        else if("other state".equals(admission)){
+            admission="viteee";
+        }
+        else{
+            admission="Direct admission";
+        }
+        return admission;
+    }
+    static String choiceCourse(){
+        System.out.println("enter the no=");
+        System.out.println("1-CSE\n2-ECE\n3-Mechanical\n4-Civil");
+        int n=sc.nextInt();
+        String course="";
+        switch (n){
+            case 1:
+                course="cse";
+                break;
+            case 2:
+                course="ece";
+                break;
+            case 3:
+                course="mechnical";
+                break;
+            case 4:
+                course="civil";
+                break;
+            default:
+                course="not selected";
+                break;
+        }
+        return course;
+    }
+    static void hostel(){
+        System.out.println("Enter the no=");
+        System.out.println("1-bus service\n2-hostel");
+        int n= sc.nextInt();
+        String student="";
+        switch (n) {
+            case 1:
+                student="Dayscholar";
+                break;
+            case 2:
+                student="Hostel";
+                break;
+        }
+        if("Dayscholar".equals(student)){
+            System.out.println("pay transport fee");
+        }else{
+            System.out.println("take the alloted room and pay the fees");
+        }
+        System.out.println("submit the report and meet the mentor");
+    }
+}
